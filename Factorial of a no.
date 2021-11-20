@@ -1,0 +1,18 @@
+public	class	Solution{
+  public	static	int fact(int n)
+  {
+				if(n==0)																																						
+				{
+								return 1;
+				}
+				return n	*	fact(n-1);
+  }
+  public	static	void main()
+  {
+				int num;
+				Scanner	s =	new	Scanner(Syatem.in);
+				num	=	s.nextInt();
+				System.out.println(fact(num));
+				return 0;
+  }
+}
