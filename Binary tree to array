@@ -1,0 +1,15 @@
+// Method to convert a given binary tree with root node equal to root to an array.
+
+static int treeToArray(BinaryTreeNode<Integer> root, int index, int a[]){
+        if(root == null){
+            return index;
+        }
+        a[index] = root.data;
+        index++;
+        
+        index = treeToArray(root.left, index, a);
+        
+        index = treeToArray(root.right, index, a);
+        return index;
+        
+}
