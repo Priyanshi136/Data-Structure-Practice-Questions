@@ -1,0 +1,25 @@
+public class Solution {
+
+	public static int flipBits(int[] arr,int n) {
+        //Write your code here
+        
+        // Method-3, using largest sum subaaray(O(n))
+        int max_diff = 0;
+        int curr = 0;
+        int noz = 0;
+        
+        for(int i = 0; i < n; i++){
+            if(arr[i] == 0){
+                curr += 1;
+            }else{
+                curr -= 1;
+                noz++;
+            }
+            if(curr < 0){
+                curr = 0;
+            }
+            max_diff = Math.max(curr, max_diff);
+        }
+        return noz+max_diff;
+  }
+}
