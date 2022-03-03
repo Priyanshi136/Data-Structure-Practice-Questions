@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+
+public class Solution {
+	public static Pair findFirstLastPosition(ArrayList<Integer> arr, int n, int x) {
+		// Write your code here.
+        return find(arr, x, 0, n-1);
+	}
+    
+    public static Pair find(ArrayList<Integer> arr, int x, int start, int end){
+        
+        if(start > end){
+            Pair t = new Pair();
+            t.first = -1;
+            t.second = -1;
+            return t;
+        }
+        
+        if(start == end && arr.get(start) == x){
+            Pair l = new Pair();
+            l.first = start;
+            l.second = start;
+            return l;
+        }
+        Pair p = new Pair();
+        int mid = (start+end)/2;
+        if(arr.get(mid) == x){
+            int k = mid;
+            int l = mid;
+            while(k >= start && arr.get(k) == x){
+                p.first = k;
+                k--;
+            }
+            while(l <= end && arr.get(l) == x){
+                p.second = l;
+                l++;
+            }
+            return p;
+        }else if(arr.get(mid) > x){
+            return find(arr, x, start, mid-1);
+        }else{
+            return find(arr, x, mid+1, end);
+        }
+    }
+}
