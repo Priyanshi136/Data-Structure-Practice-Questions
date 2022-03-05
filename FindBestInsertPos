@@ -1,0 +1,23 @@
+public class Solution {	
+	public static int bestInsertPos(int [] arr, int n, int m){
+		// Write your code here.
+        return best(arr, m, 0, n-1);
+	}
+    public static int best(int arr[], int m, int start, int end){
+        if(start > end){
+            return end+1;
+        }
+        if(start == end && arr[start] == m){
+            return start;
+        }
+        
+        int mid = (start+end)/2;
+        if(arr[mid] == m){
+            return mid;
+        }else if(arr[mid] > m){
+            return best(arr, m, start, mid-1);
+        }else{
+            return best(arr, m, mid+1, end);
+        }
+    }
+}
