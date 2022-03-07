@@ -1,0 +1,25 @@
+import java.util.*;
+public class Solution {
+
+	public static int maxSubSumKConcat(ArrayList<Integer> arr, int n, int k) {
+		
+        ArrayList<Integer> nava = new ArrayList<>();
+        for(int i = 0; i < k; i++){
+            for(int j = 0; j  < n; j++){
+                nava.add(arr.get(j));
+            }
+        }
+        
+        int max = Integer.MIN_VALUE;
+        int curr = 0;
+        for(int i = 0; i < nava.size(); i++){
+            curr += nava.get(i);
+            max = Math.max(max, curr);
+            if(curr < 0){
+                curr = 0;
+            }
+        }
+//         int mod  = (int) Math.pow(10,9)+7;
+        return max;
+	}
+}
