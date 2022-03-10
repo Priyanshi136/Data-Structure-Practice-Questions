@@ -1,0 +1,24 @@
+import java.util.List;
+import java.util.ArrayList;
+public class Solution {
+
+    public static List<Integer> sumInRanges(int[] arr, int n, List<List<Long>> queries, int q) {
+
+        // Write your code here!
+        
+        // Naive aproach(iterating through the array and  finding sum)
+         double mod = Math.pow(10, 9) + 7;
+         int k = 0;
+         List<Integer> ret = new ArrayList<>();
+         while(k < q){
+             double sum = 0;
+             for(long i = queries.get(k).get(0)-1; i < queries.get(k).get(1); i++){
+                 sum = sum +  arr[(int)i%n];
+             }
+             int store = (int)(sum%mod);
+             ret.add(store);
+             k++;
+         }
+         return ret;
+    }
+}
