@@ -1,0 +1,28 @@
+import java.util.Arrays;
+import java.util.ArrayList;
+public class Solution{
+    public static int[][] pairSum(int[] arr, int s) {
+        // Write your code here.
+        
+        Arrays.sort(arr);
+       ArrayList<int[]> ret = new ArrayList<>();
+       
+        for(int i = 0; i < arr.length; i++){
+            for(int j = i+1;  j < arr.length; j++){
+                if(arr[i] + arr[j] == s){
+                int pair[] = new int[2];
+                pair[0] = arr[i];
+                pair[1] = arr[j];
+                ret.add(pair);
+                }
+            }
+        }
+        
+        int ans[][] = new int[ret.size()][2];
+        for(int k = 0; k < ret.size(); k++){
+            ans[k][0] = ret.get(k)[0];
+            ans[k][1] = ret.get(k)[1];
+        }
+        return ans;
+    }
+}
