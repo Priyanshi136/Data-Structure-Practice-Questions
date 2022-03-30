@@ -1,0 +1,44 @@
+public class Solution {
+
+	public static void spiralPrint(int matrix[][]){
+		//Your code goes here
+        
+        int n = matrix.length;
+        if(n == 0){
+            return;
+        }
+        int m = matrix[0].length;
+        
+        int count = 0;
+        int rs = 0;
+        int cs = 0;
+        int re = n-1;
+        int ce = m-1;
+        while(count < m*n){
+            
+            for(int i = cs; count < n*m && i <= ce; i++){
+                System.out.print(matrix[rs][i]+" ");
+                count++;
+            }
+            rs++;
+            
+            for(int i = rs; count < n*m && i <= re; i++){
+                System.out.print(matrix[i][ce]+" ");
+                count++;
+            }
+            ce--;
+            
+            for(int i = ce; count < n*m && i >= cs; i--){
+                System.out.print(matrix[re][i]+" ");
+                count++;
+            }
+            re--;
+            
+            for(int i = re; count < n*m && i >= rs; i--){
+                System.out.print(matrix[i][cs]+" ");
+                count++;
+            }
+            cs++;
+        }
+	}
+}
